@@ -3,12 +3,10 @@ const { Buffer } = require("buffer");
 // * 4 Bytes (32 bits) buffer
 const memoryContainer = Buffer.alloc(4);
 
-
 memoryContainer[0] = 0xf5;
 memoryContainer[1] = 0x11;
 memoryContainer[2] = 67;
 memoryContainer[3] = -67;
-
 
 console.log("memoryContainer ", memoryContainer);
 
@@ -33,3 +31,6 @@ console.log("My Buff2: ", buff2.toString('utf-8'))
 const buff3 = Buffer.from("Hi!", 'utf-8');
 console.log("My Buff3: ", buff3);
 
+// * filled with bytes which all have the value `1`.
+const Buff4 = Buffer.alloc(10, 1);
+console.log("My Buff4: ", buff4);
