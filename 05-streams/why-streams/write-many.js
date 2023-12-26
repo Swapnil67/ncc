@@ -53,7 +53,7 @@
 // * Execution Time: 215ms 
 // * Using Streams
 // * CPU Usage: 100% (One Core)
-// * Memory Usage: 50MB
+// * Memory Usage: 200MB
 setTimeout(() => {
   (async () => {
     const fs = require("fs/promises");

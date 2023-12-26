@@ -3,7 +3,7 @@ const { Buffer } = require("node:buffer");
 // * Creates a zero-filled Buffer of length 1000.
 const buffer = Buffer.alloc(1000);
 
-// * Creates an uninitialized buffer of length 10.
+// * Creates an uninitialized buffer of length 100.
 // * This is faster than calling Buffer.alloc() but the returned
 // * Buffer instance might contain old data that needs to be
 // * overwritten using fill(), write(), or other functions that fill the Buffer's

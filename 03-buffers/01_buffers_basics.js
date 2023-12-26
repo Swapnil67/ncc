@@ -31,6 +31,6 @@ console.log("My Buff2: ", buff2.toString('utf-8'))
 const buff3 = Buffer.from("Hi!", 'utf-8');
 console.log("My Buff3: ", buff3);
 
-// * filled with bytes which all have the value `1`.
-const Buff4 = Buffer.alloc(10, 1);
+// * filled with 10 bytes which all have the value `1`.
+const buff4 = Buffer.alloc(10, 1);
 console.log("My Buff4: ", buff4);
