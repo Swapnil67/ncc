@@ -12,12 +12,13 @@ setTimeout(() => {
   const stream = fileHandle.createWriteStream();
   
   let i = 0;
+  const bytesToWrite = 1000000;
   const writeToStream = () => {
-    while(i < 1000000) {
+    while(i < bytesToWrite) {
       let buff = Buffer.from(` ${i} `, 'utf-8');
 
       // * This is our last write
-      if(i == 999999) {
+      if(i == (bytesToWrite - 1)) {
         return stream.end();
       }
 
