@@ -1,7 +1,10 @@
 const fs = require('fs/promises');
 
+// ! Write a text-big.txt using write-1M-streams.js 
+// ! Save it to this folder
+
 (async () => {
-  const fileHandleRead = await fs.open('1-million.txt', 'r');
+  const fileHandleRead = await fs.open('text-big.txt', 'r');
   const stream = fileHandleRead.createReadStream();
 
   stream.on('data', (chunk) => {

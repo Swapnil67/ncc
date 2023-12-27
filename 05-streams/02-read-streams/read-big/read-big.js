@@ -1,14 +1,16 @@
 const fs = require('fs/promises');
 
-// ! Write a 1-million.txt using write-1M-streams.js 
+
+// ! Write a text-big.txt using write-1M-streams.js 
+// ! Save it to this folder
 
 // ! DO NOT DO THIS WAY
 // ! HIGH MEMORY USAGE
 // (async () => {
 //   console.time('benchmark');
 
-//   const fileHandleRead = await fs.open('../1-million.txt', 'r');
-//   const fileHandleWrite = await fs.open('1-million-dest.txt', 'w');
+//   const fileHandleRead = await fs.open('../text-big.txt', 'r');
+//   const fileHandleWrite = await fs.open('text-big-dest.txt', 'w');
 
 //   const readStream = fileHandleRead.createReadStream({ highWaterMark: 64 * 1024 });
 //   const writeStream = fileHandleWrite.createWriteStream();
@@ -30,8 +32,8 @@ const fs = require('fs/promises');
 (async () => {
   console.time('benchmark');
 
-  const fileHandleRead = await fs.open('../1-million.txt', 'r');
-  const fileHandleWrite = await fs.open('1-million-dest.txt', 'w');
+  const fileHandleRead = await fs.open('../text-big.txt', 'r');
+  const fileHandleWrite = await fs.open('text-big-dest.txt', 'w');
 
   const readStream = fileHandleRead.createReadStream({ highWaterMark: 64 * 1024 });
   const writeStream = fileHandleWrite.createWriteStream();

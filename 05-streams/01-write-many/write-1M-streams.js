@@ -1,18 +1,19 @@
 const fs = require("fs/promises");
 
-// ! Write a 1-million.txt using write-1M-streams.js 
+// ! Write a text-big.txt using write-1M-streams.js 
 
-
+// * CPU USAGE: 100%
+// * MEMORY USAGE: 50MB
 setTimeout(() => {
 (async () => {
   
   console.time('benchmark');
 
-  const fileHandle = await fs.open('1-million.txt', 'w+');
+  const fileHandle = await fs.open('text-big.txt', 'w+');
   const stream = fileHandle.createWriteStream();
   
   let i = 0;
-  const bytesToWrite = 1000000;
+  const bytesToWrite = 100000000;
   const writeToStream = () => {
     while(i < bytesToWrite) {
       let buff = Buffer.from(` ${i} `, 'utf-8');

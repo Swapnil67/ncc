@@ -1,17 +1,18 @@
 const fs = require('node:fs/promises');
 
-// ! Write a 1-million.txt using write-1M-streams.js 
+// ! Write a text-big.txt using write-1M-streams.js 
 // ! Save file to /copy folder
 
-// ! BAD PRACTICE 
-// * File Size Copied: 100 GB
-// * File Size Copied: 10 GB
-// * Execution Time:  < 100ms
+// ! ------------------ BAD PRACTICE ------------------
+// * File Size Copied: 1 GB
+// * Execution Time:  < 500ms
+// * MEMORY USAGE: 1GB
+
 // setTimeout(() => {
 //   (async () => {
 //     console.time('copy');
 //     const destFile = await fs.open('copy.txt', 'w')
-//     const content = await fs.readFile('1-million.txt');
+//     const content = await fs.readFile('text-big.txt');
   
 //     await destFile.write(content);
     
@@ -21,18 +22,21 @@ const fs = require('node:fs/promises');
 //   })()
 // }, 5000);
 
+// * Here we are copying by taking the complete data in one buffer
+// * Then flushing the data to destination file
+
+// * ------------------ GOOD PRACTICE ------------------
+
+// * File Size Copied: 1 GB
+// * Execution Time:  > 1s
+// * MEMORY USAGE: 10MB
+
 const READ_DEFAULT_BYTES = 16384;
-
-
-// * File Size Copied: 100 GB
-// * File Size Copied: 10 GB
-// * Execution Time:  < 100ms
-// * GOOD PRACTICE
 setTimeout(() => {
   (async () => {
     console.time('copy');
     const destFile = await fs.open('copy.txt', 'w')
-    const srcFile = await fs.open('1-million.txt', 'r')
+    const srcFile = await fs.open('text-big.txt', 'r')
 
     let bytesRead = -1;
     while(bytesRead !== 0) {
@@ -54,3 +58,6 @@ setTimeout(() => {
     console.timeEnd('copy');
   })()
 }, 5000);
+
+// * Here we are copying small small chunks of data in one buffer
+// * Then flushing the buffer to destination file
