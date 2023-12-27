@@ -15,17 +15,18 @@ setTimeout(() => {
   let i = 0;
   const bytesToWrite = 100000000;
   const writeToStream = () => {
-    while(i < bytesToWrite) {
+    while(i <= bytesToWrite) {
       let buff = Buffer.from(` ${i} `, 'utf-8');
 
       // * This is our last write
-      if(i == (bytesToWrite - 1)) {
+      if(i === bytesToWrite) {
         return stream.end();
       }
 
       // * If stream's buffer is full then break
+      // * This calls the drain event
       if(!stream.write(buff)) break;
-      // stream.write(buff);
+      // stream.write(buff); // ! Bad Practice
 
       i++;
     }
