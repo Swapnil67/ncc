@@ -58,12 +58,15 @@ const fs = require('fs/promises');
 
     // * ----------------------- For Splitting Issue -----------------------
 
-
-    numbers.forEach(n => {
-      if(n % 2 == 0) {
-        // * Even Numbers
-      }
-    })
+    // * Even Numbers
+    // numbers.forEach(n => {
+    //   if(n % 2 == 0) {
+    //     if(!writeStream.write(chunk)) {
+    //       // * Pause the read stream once the write buffer gets full
+    //       readStream.pause();
+    //     }
+    //   }
+    // })
 
     console.log("numbers: ", numbers);
 

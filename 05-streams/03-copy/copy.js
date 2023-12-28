@@ -4,6 +4,10 @@ const fs = require('node:fs/promises');
 // ! Save file to /copy folder
 
 // ! ------------------ BAD PRACTICE ------------------
+
+// * Here we are copying by taking the complete data in one buffer
+// * Then flushing the data to destination file
+
 // * File Size Copied: 1 GB
 // * Execution Time:  < 500ms
 // * MEMORY USAGE: 1GB
@@ -22,8 +26,6 @@ const fs = require('node:fs/promises');
 //   })()
 // }, 5000);
 
-// * Here we are copying by taking the complete data in one buffer
-// * Then flushing the data to destination file
 
 // * ------------------ GOOD PRACTICE ------------------
 
