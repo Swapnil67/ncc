@@ -26,6 +26,7 @@ setTimeout(() => {
       // * If stream's buffer is full then break
       // * This calls the drain event
       if(!stream.write(buff)) break;
+      
       // stream.write(buff); // ! Bad Practice
 
       i++;

@@ -1,8 +1,11 @@
 const fs = require('fs/promises');
 
 
+// ! ********* Prerequisite *********
 // ! Write a text-big.txt using write-1M-streams.js 
 // ! Save it to this folder
+
+// ! ---------------------------------------------------------------------------
 
 // ! DO NOT DO THIS WAY
 // ! HIGH MEMORY USAGE
