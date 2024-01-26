@@ -15,20 +15,19 @@ server.on("request", (req, res) => {
 
   let data = {}
   req.on('data', (chunk) => {
-    // console.log("Data: ", chunk.toString());
+    console.log("Data: ", chunk.toString());
     Object.assign(data, JSON.parse(chunk.toString()))
   })
 
   req.on('end', () => {
-    console.log('Name: ', name);
-    console.log('Data: ', data);
+    // console.log('Name: ', name);
+    // console.log('Data: ', data);
 
     res.writeHead(200, {
       'Content-Type': 'application/json',
     })
-    res.write(JSON.stringify({ message: `Hello ${name} your Post Created!` }));
-  })  
-
+    res.end(JSON.stringify({ message: `Hello ${name} your Post Created!` }));
+  })
 
 })
 
