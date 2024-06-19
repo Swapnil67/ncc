@@ -12,8 +12,8 @@ console.log("__dirname: \n", __dirname);
 // const content = fs.readFileSync("./text.txt", "utf8");
 
 // * Solution -> Use Absolute Path
-const content = fs.readFileSync(path.join(__dirname, "./text.txt"), "utf8");
-
+// const content = fs.readFileSync(path.join(__dirname, "./text.txt"), "utf8");
+// 
 // * This works from -> node path/app.js
 // * This works because fs module by default works on absolute path
 // const content = fs.readFileSync("/Users/swapnil67/Developer/Backend_engineering/NCC/08-unix/path/text.txt", "utf8");

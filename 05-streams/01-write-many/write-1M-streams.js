@@ -12,6 +12,7 @@ setTimeout(() => {
   const fileHandle = await fs.open('text-big.txt', 'w+');
   const stream = fileHandle.createWriteStream();
   
+
   let i = 0;
   const bytesToWrite = 100000000;
   const writeToStream = () => {
